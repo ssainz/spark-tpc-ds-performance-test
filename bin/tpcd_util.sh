@@ -22,6 +22,23 @@ set_environment() {
   fi  
 }
 
+cleanup() {
+  if [ -n "$1" ]; then
+    rm -rf $1/*.log
+    rm -rf $1/*.txt
+    rm -rf $1/*.sql
+    rm -rf $1/*.properties
+    rm -rf $1/*.out
+    rm -rf $1/*.res
+    rm -rf $1/*.dat
+    rm -rf $1/*.rrn
+    rm -rf $1/*.tpl
+    rm -rf $1/*.lst
+    rm -rf $1/README
+  fi
+}
+
+
 set_env() {
   # read -n1 -s
   TEST_ROOT=`pwd`
@@ -34,6 +51,19 @@ set_env() {
 set_env
 DRIVER_OPTIONS="--driver-java-options -Dlog4j.configuration=file:///${output_dir}/log4j.properties"
 EXECUTOR_OPTIONS="--conf spark.executor.extraJavaOptions=-Dlog4j.configuration=file:///${output_dir}/log4j.properties"
+
+output_dir=$TPCDS_WORK_DIR
+cleanup $TPCDS_WORK_DIR
+for i in `ls ${TPCDS_ROOT_DIR}/src/ddl/individual/*.sql`
+do
+  baseName="$(basename $i)"
+  template $i > ${output_dir}/$baseName
+done 
+for i in `ls ${TPCDS_ROOT_DIR}/src/properties/*`
+do
+  baseName="$(basename $i)"
+  template $i > ${output_dir}/$baseName
+done 
 
 ${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/create_database.sql > ${TPCDS_WORK_DIR}/create_database.out 2>&1
 ${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/call_center_text_only.sql > ${TPCDS_WORK_DIR}/call_center_text_only.out 2>&1
