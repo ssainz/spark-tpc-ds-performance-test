@@ -75,6 +75,11 @@ do
   baseName="$(basename $i)"
   template $i > ${output_dir}/$baseName
 done 
+for i in `ls ${TPCDS_ROOT_DIR}/src/ddl/create_tables.sql`
+do
+  baseName="$(basename $i)"
+  template $i > ${output_dir}/$baseName
+done
 for i in `ls ${TPCDS_ROOT_DIR}/src/properties/*`
 do
   baseName="$(basename $i)"
