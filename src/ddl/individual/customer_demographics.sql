@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists customer_demographics_text;
 create table customer_demographics_text
 (

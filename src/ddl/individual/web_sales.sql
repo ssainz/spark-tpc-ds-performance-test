@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists web_sales_text;
 create table web_sales_text
 (

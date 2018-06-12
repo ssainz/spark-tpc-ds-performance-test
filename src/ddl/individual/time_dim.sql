@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists time_dim_text;
 create table time_dim_text
 (

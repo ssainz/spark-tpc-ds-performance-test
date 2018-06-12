@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists ship_mode_text;
 create table ship_mode_text
 (

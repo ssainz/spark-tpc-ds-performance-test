@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists inventory_text;
 create table inventory_text
 (

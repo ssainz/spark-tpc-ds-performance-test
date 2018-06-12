@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists reason_text;
 create table reason_text
 (

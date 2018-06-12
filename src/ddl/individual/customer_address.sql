@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists customer_address_text;
 create table customer_address_text
 (

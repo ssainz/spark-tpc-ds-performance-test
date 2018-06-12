@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists warehouse_text;
 create table warehouse_text
 (
