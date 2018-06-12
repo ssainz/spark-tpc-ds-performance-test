@@ -48,6 +48,17 @@ set_env() {
   set_environment
 }
 
+template(){
+    # usage: template file.tpl
+    while read -r line ; do
+            line=${line//\"/\\\"}
+            line=${line//\`/\\\`}
+            line=${line//\$/\\\$}
+            line=${line//\\\${/\${}
+            eval "echo \"$line\""; 
+    done < ${1}
+}
+
 set_env
 DRIVER_OPTIONS="--driver-java-options -Dlog4j.configuration=file:///${output_dir}/log4j.properties"
 EXECUTOR_OPTIONS="--conf spark.executor.extraJavaOptions=-Dlog4j.configuration=file:///${output_dir}/log4j.properties"
