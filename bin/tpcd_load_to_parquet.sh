@@ -82,30 +82,30 @@ do
 done 
 
 ${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/create_database.sql > ${TPCDS_WORK_DIR}/create_database.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/call_center.sql > ${tpcds_work_dir}/call_center.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/catalog_page.sql > ${tpcds_work_dir}/catalog_page.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/catalog_returns.sql > ${tpcds_work_dir}/catalog_returns.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/catalog_sales.sql > ${tpcds_work_dir}/catalog_sales.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/customer.sql > ${tpcds_work_dir}/customer.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/customer_address.sql > ${tpcds_work_dir}/customer_address.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/customer_demographics.sql > ${tpcds_work_dir}/customer_demographics.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/date_dim.sql > ${tpcds_work_dir}/date_dim.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/household_demographics.sql > ${tpcds_work_dir}/household_demographics.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/income_band.sql > ${tpcds_work_dir}/income_band.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/inventory.sql > ${tpcds_work_dir}/inventory.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/item.sql > ${tpcds_work_dir}/item.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/promotion.sql > ${tpcds_work_dir}/promotion.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/reason.sql > ${tpcds_work_dir}/reason.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/ship_mode.sql > ${tpcds_work_dir}/ship_mode.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/store.sql > ${tpcds_work_dir}/store.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/store_returns.sql > ${tpcds_work_dir}/store_returns.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/store_sales.sql > ${tpcds_work_dir}/store_sales.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/time_dim.sql > ${tpcds_work_dir}/time_dim.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/warehouse.sql > ${tpcds_work_dir}/warehouse.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/web_page.sql > ${tpcds_work_dir}/web_page.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/web_returns.sql > ${tpcds_work_dir}/web_returns.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/web_sales.sql > ${tpcds_work_dir}/web_sales.out 2>&1
-${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/web_site.sql > ${tpcds_work_dir}/web_site.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/call_center.sql > ${TPCDS_WORK_DIR}/call_center.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/catalog_page.sql > ${TPCDS_WORK_DIR}/catalog_page.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/catalog_returns.sql > ${TPCDS_WORK_DIR}/catalog_returns.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/catalog_sales.sql > ${TPCDS_WORK_DIR}/catalog_sales.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/customer.sql > ${TPCDS_WORK_DIR}/customer.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/customer_address.sql > ${TPCDS_WORK_DIR}/customer_address.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/customer_demographics.sql > ${TPCDS_WORK_DIR}/customer_demographics.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/date_dim.sql > ${TPCDS_WORK_DIR}/date_dim.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/household_demographics.sql > ${TPCDS_WORK_DIR}/household_demographics.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/income_band.sql > ${TPCDS_WORK_DIR}/income_band.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/inventory.sql > ${TPCDS_WORK_DIR}/inventory.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/item.sql > ${TPCDS_WORK_DIR}/item.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/promotion.sql > ${TPCDS_WORK_DIR}/promotion.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/reason.sql > ${TPCDS_WORK_DIR}/reason.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/ship_mode.sql > ${TPCDS_WORK_DIR}/ship_mode.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/store.sql > ${TPCDS_WORK_DIR}/store.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/store_returns.sql > ${TPCDS_WORK_DIR}/store_returns.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/store_sales.sql > ${TPCDS_WORK_DIR}/store_sales.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/time_dim.sql > ${TPCDS_WORK_DIR}/time_dim.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/warehouse.sql > ${TPCDS_WORK_DIR}/warehouse.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/web_page.sql > ${TPCDS_WORK_DIR}/web_page.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/web_returns.sql > ${TPCDS_WORK_DIR}/web_returns.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/web_sales.sql > ${TPCDS_WORK_DIR}/web_sales.out 2>&1
+${SPARK_HOME}/bin/spark-sql ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} --conf spark.sql.catalogImplementation=hive -f ${TPCDS_WORK_DIR}/web_site.sql > ${TPCDS_WORK_DIR}/web_site.out 2>&1
 
 
 
