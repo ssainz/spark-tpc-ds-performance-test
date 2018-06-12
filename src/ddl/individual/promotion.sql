@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 create table promotion_text
 (
     p_promo_sk                int,

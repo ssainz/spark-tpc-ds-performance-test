@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists catalog_returns_text;
 create table catalog_returns_text
 (

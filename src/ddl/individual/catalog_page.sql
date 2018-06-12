@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists catalog_page_text;
 create table catalog_page_text
 (

@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists item_text;
 create table item_text
 (

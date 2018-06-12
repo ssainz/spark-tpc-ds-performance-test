@@ -1,3 +1,4 @@
+use ${TPCDS_DBNAME};
 drop table if exists store_text;
 create table store_text
 (
