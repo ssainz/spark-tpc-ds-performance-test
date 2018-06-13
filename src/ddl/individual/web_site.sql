@@ -30,7 +30,7 @@ create table web_site_text
     web_tax_percentage        double
 )
 USING csv
-OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_site")
+OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_site.dat")
 ;
 drop table if exists web_site;
 create table web_site

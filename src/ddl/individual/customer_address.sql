@@ -17,7 +17,7 @@ create table customer_address_text
     ca_location_type          string
 )
 USING csv
-OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/customer_address")
+OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/customer_address.dat")
 ;
 drop table if exists customer_address;
 create table customer_address
