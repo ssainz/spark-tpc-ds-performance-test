@@ -32,7 +32,7 @@ create table date_dim_text
     d_current_year            string
 )
 USING csv
-OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/date_dim")
+OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/date_dim.dat")
 ;
 drop table if exists date_dim;
 create table date_dim

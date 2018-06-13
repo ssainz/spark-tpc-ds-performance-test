@@ -18,7 +18,7 @@ create table web_page_text
     wp_max_ad_count           int
 )
 USING csv
-OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_page")
+OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_page.dat")
 ;
 drop table if exists web_page;
 create table web_page 

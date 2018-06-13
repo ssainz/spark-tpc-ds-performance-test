@@ -26,7 +26,7 @@ create table item_text
     i_product_name            string
 )
 USING csv
-OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/item")
+OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/item.dat")
 ;
 drop table if exists item;
 create table item
