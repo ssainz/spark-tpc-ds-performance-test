@@ -35,7 +35,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/catalog_return
 ;
 drop table if exists catalog_returns;
 create table catalog_returns
-using parquet
+using carbondata
 as (select * from catalog_returns_text)
 ;
 drop table if exists catalog_returns_text;

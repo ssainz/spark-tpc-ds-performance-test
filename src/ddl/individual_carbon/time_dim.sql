@@ -18,7 +18,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/time_dim.dat")
 ;
 drop table if exists time_dim;
 create table time_dim
-using parquet
+using carbondata
 as (select * from time_dim_text)
 ;
 drop table if exists time_dim_text;

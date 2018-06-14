@@ -14,7 +14,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/ship_mode.dat"
 ;
 drop table if exists ship_mode;
 create table ship_mode
-using parquet
+using carbondata
 as (select * from ship_mode_text)
 ;
 drop table if exists ship_mode_text;

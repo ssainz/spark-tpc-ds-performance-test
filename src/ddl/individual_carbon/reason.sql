@@ -11,7 +11,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/reason.dat")
 ;
 drop table if exists reason;
 create table reason 
-using parquet
+using carbondata
 as (select * from reason_text)
 ;
 drop table if exists reason_text;
