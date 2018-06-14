@@ -37,7 +37,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/store.dat")
 ;
 drop table if exists store;
 create table store 
-using parquet
+using carbondata
 as (select * from store_text)
 ;
 drop table if exists store_text;

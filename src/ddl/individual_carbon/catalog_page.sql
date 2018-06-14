@@ -17,7 +17,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/catalog_page.d
 ;
 drop table if exists catalog_page;
 create table catalog_page
-using parquet
+using carbondata
 as (select * from catalog_page_text)
 ;
 drop table if exists catalog_page_text;

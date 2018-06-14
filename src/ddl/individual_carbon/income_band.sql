@@ -11,7 +11,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/income_band.da
 ;
 drop table if exists income_band;
 create table income_band 
-using parquet
+using carbondata
 as (select * from income_band_text)
 ;
 drop table if exists income_band_text;

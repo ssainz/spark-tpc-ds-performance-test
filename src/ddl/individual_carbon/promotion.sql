@@ -26,7 +26,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/promotion.dat"
 ;
 drop table if exists promotion;
 create table promotion
-using parquet
+using carbondata
 as (select * from promotion_text)
 ;
 drop table if exists promotion_text;

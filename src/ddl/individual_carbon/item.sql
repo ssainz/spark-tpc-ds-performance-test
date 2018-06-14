@@ -30,7 +30,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/item.dat")
 ;
 drop table if exists item;
 create table item
-using parquet
+using carbondata
 as (select * from item_text)
 ;
 drop table if exists item_text;

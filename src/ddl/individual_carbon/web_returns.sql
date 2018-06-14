@@ -32,7 +32,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_returns.da
 ;
 drop table if exists web_returns;
 create table web_returns
-using parquet
+using carbondata
 as (select * from web_returns_text)
 ;
 drop table if exists web_returns_text;

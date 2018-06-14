@@ -1,3 +1,4 @@
+add jar 
 use ${TPCDS_DBNAME};
 drop table if exists call_center_text;
 create table call_center_text

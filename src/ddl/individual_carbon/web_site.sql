@@ -34,7 +34,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_site.dat")
 ;
 drop table if exists web_site;
 create table web_site
-using parquet
+using carbondata
 as (select * from web_site_text)
 ;
 drop table if exists web_site_text;

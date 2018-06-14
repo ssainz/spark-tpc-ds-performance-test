@@ -13,7 +13,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/household_demo
 ;
 drop table if exists household_demographics;
 create table household_demographics
-using parquet
+using carbondata
 as (select * from household_demographics_text)
 ;
 drop table if exists household_demographics_text;

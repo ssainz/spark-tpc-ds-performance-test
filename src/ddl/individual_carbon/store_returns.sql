@@ -28,7 +28,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/store_returns.
 ;
 drop table if exists store_returns;
 create table store_returns 
-using parquet
+using carbondata
 as (select * from store_returns_text)
 ;
 drop table if exists store_returns_text;

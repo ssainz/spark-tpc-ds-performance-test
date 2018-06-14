@@ -26,7 +26,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/customer.dat")
 ;
 drop table if exists customer;
 create table customer
-using parquet
+using carbondata
 as (select * from customer_text)
 ;
 drop table if exists customer_text;

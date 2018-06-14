@@ -22,7 +22,7 @@ OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/warehouse.dat"
 ;
 drop table if exists warehouse;
 create table warehouse
-using parquet
+using carbondata
 as (select * from warehouse_text)
 ;
 drop table if exists warehouse_text;
