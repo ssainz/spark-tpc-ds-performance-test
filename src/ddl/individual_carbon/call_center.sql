@@ -1,4 +1,3 @@
-add jar ${TPCDS_ROOT_DIR}lib/apache-carbondata-1.5.0-SNAPSHOT-bin-spark2.2.1-hadoop2.7.2.jar
 use ${TPCDS_DBNAME};
 drop table if exists call_center_text;
 create table call_center_text
