@@ -82,3 +82,4 @@ do
 done 
 
 java -cp ${TPCDS_LOAD_ROOT}/tpcds_ds_load.jar ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} execute_sql_script ${TPCDS_WORK_DIR}/create_database.sql > ${TPCDS_WORK_DIR}/create_database.out 2>&1
+java -cp ${TPCDS_LOAD_ROOT}/tpcds_ds_load.jar ${DRIVER_OPTIONS} ${EXECUTOR_OPTIONS} execute_sql_script ${TPCDS_WORK_DIR}/call_center.sql > ${TPCDS_WORK_DIR}/call_center.out 2>&1
