@@ -21,3 +21,4 @@ export TPCDS_GENDATA_DIR=
 export TPCDS_GEN_QUERIES_DIR=
 export TPCDS_WORK_DIR=
 export TPCDS_LOAD_ROOT=
+export JAVA_OPTS="-Xmx3g -Xms3g"
