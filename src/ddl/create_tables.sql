@@ -1,13 +1,3 @@
-------------------------------------------------------------------------------
--- Licensed Materials - Property of IBM
---
--- (C) COPYRIGHT International Business Machines Corp. 2014
--- All Rights Reserved.
---
--- US Government Users Restricted Rights - Use, duplication or
--- disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-------------------------------------------------------------------------------
-
 USE ${TPCDS_DBNAME};
 
 drop table if exists call_center_text;
