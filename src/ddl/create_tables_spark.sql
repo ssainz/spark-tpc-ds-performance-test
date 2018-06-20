@@ -1,7 +1,7 @@
 USE ${TPCDS_DBNAME};
 
-drop table if exists call_center_text;
-create table call_center_text
+drop table if exists call_center;
+create table call_center
 (
     cc_call_center_sk         int,
     cc_call_center_id         string,
@@ -38,10 +38,10 @@ create table call_center_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/call_center.dat")
 ;
-cache table call_center_text;
+cache table call_center;
 
-drop table if exists catalog_page_text;
-create table catalog_page_text
+drop table if exists catalog_page;
+create table catalog_page
 (
     cp_catalog_page_sk        int,
     cp_catalog_page_id        string,
@@ -56,10 +56,10 @@ create table catalog_page_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/catalog_page.dat")
 ;
-cache table catalog_page_text;
+cache table catalog_page;
 
-drop table if exists catalog_returns_text;
-create table catalog_returns_text
+drop table if exists catalog_returns;
+create table catalog_returns
 (
     cr_returned_date_sk       int,
     cr_returned_time_sk       int,
@@ -92,11 +92,11 @@ create table catalog_returns_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/catalog_returns.dat")
 ;
-cache table catalog_returns_text;
+cache table catalog_returns;
 
 
-drop table if exists catalog_sales_text;
-create table catalog_sales_text
+drop table if exists catalog_sales;
+create table catalog_sales
 (
     cs_sold_date_sk           int,
     cs_sold_time_sk           int,
@@ -136,10 +136,10 @@ create table catalog_sales_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/catalog_sales.dat")
 ;
-cache table catalog_sales_text;
+cache table catalog_sales;
 
-drop table if exists customer_text;
-create table customer_text
+drop table if exists customer;
+create table customer
 (
     c_customer_sk             int,
     c_customer_id             string,
@@ -163,11 +163,11 @@ create table customer_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/customer.dat")
 ;
-cache table customer_text;
+cache table customer;
 
 
-drop table if exists customer_address_text;
-create table customer_address_text
+drop table if exists customer_address;
+create table customer_address
 (
     ca_address_sk             int,
     ca_address_id             string,
@@ -186,10 +186,10 @@ create table customer_address_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/customer_address.dat")
 ;
-cache table customer_address_text;
+cache table customer_address;
 
-drop table if exists customer_demographics_text;
-create table customer_demographics_text
+drop table if exists customer_demographics;
+create table customer_demographics
 (
     cd_demo_sk                int,
     cd_gender                 string,
@@ -204,10 +204,10 @@ create table customer_demographics_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/customer_demographics.dat")
 ;
-cache table customer_demographics_text;
+cache table customer_demographics;
 
-drop table if exists date_dim_text;
-create table date_dim_text
+drop table if exists date_dim;
+create table date_dim
 (
     d_date_sk                 int,
     d_date_id                 string,
@@ -241,10 +241,10 @@ create table date_dim_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/date_dim.dat")
 ;
-cache table date_dim_text;
+cache table date_dim;
 
-drop table if exists household_demographics_text;
-create table household_demographics_text
+drop table if exists household_demographics;
+create table household_demographics
 (
     hd_demo_sk                int,
     hd_income_band_sk         int,
@@ -255,10 +255,10 @@ create table household_demographics_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/household_demographics.dat")
 ;
-cache table household_demographics_text;
+cache table household_demographics;
 
-drop table if exists income_band_text;
-create table income_band_text
+drop table if exists income_band;
+create table income_band
 (
     ib_income_band_sk         int,
     ib_lower_bound            int,
@@ -267,10 +267,10 @@ create table income_band_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/income_band.dat")
 ;
-cache table income_band_text;
+cache table income_band;
 
-drop table if exists inventory_text;
-create table inventory_text
+drop table if exists inventory;
+create table inventory
 (
     inv_date_sk               int,
     inv_item_sk               int,
@@ -280,10 +280,10 @@ create table inventory_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/inventory.dat")
 ;
-cache table inventory_text;
+cache table inventory;
 
-drop table if exists item_text;
-create table item_text
+drop table if exists item;
+create table item
 (
     i_item_sk                 int,
     i_item_id                 string,
@@ -311,10 +311,10 @@ create table item_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/item.dat")
 ;
-cache table item_text;
+cache table item;
 
-drop table if exists promotion_text;
-create table promotion_text
+drop table if exists promotion;
+create table promotion
 (
     p_promo_sk                int,
     p_promo_id                string,
@@ -339,11 +339,11 @@ create table promotion_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/promotion.dat")
 ;
-cache table promotion_text;
+cache table promotion;
 
 
-drop table if exists reason_text;
-create table reason_text
+drop table if exists reason;
+create table reason
 (
     r_reason_sk               int,
     r_reason_id               string,
@@ -352,10 +352,10 @@ create table reason_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/reason.dat")
 ;
-cache table reason_text;
+cache table reason;
 
-drop table if exists ship_mode_text;
-create table ship_mode_text
+drop table if exists ship_mode;
+create table ship_mode
 (
     sm_ship_mode_sk           int,
     sm_ship_mode_id           string,
@@ -367,10 +367,10 @@ create table ship_mode_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/ship_mode.dat")
 ;
-cache table ship_mode_text;
+cache table ship_mode;
 
-drop table if exists store_text;
-create table store_text
+drop table if exists store;
+create table store
 (
     s_store_sk                int,
     s_store_id                string,
@@ -405,10 +405,10 @@ create table store_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/store.dat")
 ;
-cache table store_text;
+cache table store;
 
-drop table if exists store_returns_text;
-create table store_returns_text
+drop table if exists store_returns;
+create table store_returns
 (
     sr_returned_date_sk       int,
     sr_return_time_sk         int,
@@ -434,10 +434,10 @@ create table store_returns_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/store_returns.dat")
 ;
-cache table store_returns_text;
+cache table store_returns;
 
-drop table if exists store_sales_text;
-create table store_sales_text
+drop table if exists store_sales;
+create table store_sales
 (
     ss_sold_date_sk           int,
     ss_sold_time_sk           int,
@@ -466,10 +466,10 @@ create table store_sales_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/store_sales.dat")
 ;
-cache table store_sales_text;
+cache table store_sales;
 
-drop table if exists time_dim_text;
-create table time_dim_text
+drop table if exists time_dim;
+create table time_dim
 (
     t_time_sk                 int,
     t_time_id                 string,
@@ -485,10 +485,10 @@ create table time_dim_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/time_dim.dat")
 ;
-cache table time_dim_text;
+cache table time_dim;
 
-drop table if exists warehouse_text;
-create table warehouse_text
+drop table if exists warehouse;
+create table warehouse
 (
     w_warehouse_sk            int,
     w_warehouse_id            string,
@@ -508,10 +508,10 @@ create table warehouse_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/warehouse.dat")
 ;
-cache table warehouse_text;
+cache table warehouse;
 
-drop table if exists web_page_text;
-create table web_page_text
+drop table if exists web_page;
+create table web_page
 (
     wp_web_page_sk            int,
     wp_web_page_id            string,
@@ -531,10 +531,10 @@ create table web_page_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_page.dat")
 ;
-cache table web_page_text;
+cache table web_page;
 
-drop table if exists web_returns_text;
-create table web_returns_text
+drop table if exists web_returns;
+create table web_returns
 (
     wr_returned_date_sk       int,
     wr_returned_time_sk       int,
@@ -564,10 +564,10 @@ create table web_returns_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_returns.dat")
 ;
-cache table web_returns_text;
+cache table web_returns;
 
-drop table if exists web_sales_text;
-create table web_sales_text
+drop table if exists web_sales;
+create table web_sales
 (
     ws_sold_date_sk           int,
     ws_sold_time_sk           int,
@@ -607,10 +607,10 @@ create table web_sales_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_sales.dat")
 ;
-cache table web_sales_text;
+cache table web_sales;
 
-drop table if exists web_site_text;
-create table web_site_text
+drop table if exists web_site;
+create table web_site
 (
     web_site_sk               int,
     web_site_id               string,
@@ -642,4 +642,4 @@ create table web_site_text
 USING csv
 OPTIONS(header "false", delimiter "|", path "${TPCDS_GENDATA_DIR}/web_site.dat")
 ;
-cache table web_site_text;
+cache table web_site;

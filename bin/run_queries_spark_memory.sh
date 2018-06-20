@@ -48,10 +48,21 @@ cleanup() {
   fi
 }
 
+template(){
+    # usage: template file.tpl
+    while read -r line ; do
+            line=${line//\"/\\\"}
+            line=${line//\`/\\\`}
+            line=${line//\$/\\\$}
+            line=${line//\\\${/\${}
+            eval "echo \"$line\""; 
+    done < ${1}
+}
 
 
 set_env
 OUTPUT_DIR=$TPCDS_WORK_DIR
+output_dir=$TPCDS_WORK_DIR
 cleanup $TPCDS_WORK_DIR
 DRIVER_OPTIONS="--driver-memory 4g --driver-java-options -Dlog4j.configuration=file:///${OUTPUT_DIR}/log4j.properties"
 EXECUTOR_OPTIONS="--executor-memory 2g --num-executors 1 --conf spark.executor.extraJavaOptions=-Dlog4j.configuration=file:///${OUTPUT_DIR}/log4j.properties --conf spark.sql.crossJoin.enabled=true"
@@ -97,13 +108,13 @@ do
   cp ${TPCDS_GENQUERIES_DIR}/query$i.sql $TPCDS_WORK_DIR
 done 
 
-scala -classpath ${TPCDS_LOAD_ROOT}/lib/tpcds_load.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-core-3.2.10.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-api-jdo-3.2.6.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-rdbms-3.2.9.jar:${TPCDS_LOAD_ROOT}/lib/spark-csv_2.11-1.4.0.jar:${TPCDS_LOAD_ROOT}/lib/parquet-common-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-column-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-encoding-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-format-2.3.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-jackson-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/hive-exec-1.2.1.spark2.jar:${TPCDS_LOAD_ROOT}/lib/spark-sql_2.11-2.2.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-bundle-1.6.0.jar  execute_sql_script ${TPCDS_WORK_DIR}/create_tables_spark.sql keepOff ${TPCDS_WORK_DIR}/ > ${TPCDS_WORK_DIR}/queries.res 2>&1
+scala -classpath ${TPCDS_LOAD_ROOT}/lib/tpcds_load.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-core-3.2.10.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-api-jdo-3.2.6.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-rdbms-3.2.9.jar:${TPCDS_LOAD_ROOT}/lib/spark-csv_2.11-1.4.0.jar:${TPCDS_LOAD_ROOT}/lib/parquet-common-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-column-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-encoding-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-format-2.3.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-jackson-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/hive-exec-1.2.1.spark2.jar:${TPCDS_LOAD_ROOT}/lib/spark-sql_2.11-2.2.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-bundle-1.6.0.jar  execute_sql_script ${TPCDS_WORK_DIR}/create_tables_spark.sql keepOff ${TPCDS_WORK_DIR} > ${TPCDS_WORK_DIR}/queries.res 2>&1
 
 i=1
 lines=`cat ${OUTPUT_DIR}/queries.res | grep "Time taken:"`
 echo "$lines" | while read -r line; 
 do
-  num=`printf "%02d\n" $i`
+  num=`printf "%02d\n" ${i}`
   time=`echo $line | tr -s " " " " | cut -d " " -f3`
   num_rows=`echo $line | tr -s " " " " | cut -d " " -f6`
   printf "$format" \
@@ -111,7 +122,7 @@ do
      $time \
      "" \
      $num_rows >> ${OUTPUT_DIR}/run_summary.txt 
-  i=i+1
+  i=$((i+1))
 done 
 
 
