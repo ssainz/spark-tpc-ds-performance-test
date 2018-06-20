@@ -80,11 +80,17 @@ do
   baseName="$(basename $i)"
   template $i > ${output_dir}/$baseName
 done
+for i in `ls ${TPCDS_ROOT_DIR}/src/ddl/drop_table.sql`
+do
+  baseName="$(basename $i)"
+  template $i > ${output_dir}/$baseName
+done
 for i in `ls ${TPCDS_ROOT_DIR}/src/properties/*`
 do
   baseName="$(basename $i)"
   template $i > ${output_dir}/$baseName
 done 
 
+scala -classpath ${TPCDS_LOAD_ROOT}/lib/tpcds_load.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-core-3.2.10.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-api-jdo-3.2.6.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-rdbms-3.2.9.jar:${TPCDS_LOAD_ROOT}/lib/spark-csv_2.11-1.4.0.jar:${TPCDS_LOAD_ROOT}/lib/parquet-common-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-column-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-encoding-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-format-2.3.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-jackson-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/hive-exec-1.2.1.spark2.jar:${TPCDS_LOAD_ROOT}/lib/spark-sql_2.11-2.2.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-bundle-1.6.0.jar  execute_sql_script ${TPCDS_WORK_DIR}/drop_table.sql > ${TPCDS_WORK_DIR}/drop_table.out 2>&1
 scala -classpath ${TPCDS_LOAD_ROOT}/lib/tpcds_load.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-core-3.2.10.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-api-jdo-3.2.6.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-rdbms-3.2.9.jar:${TPCDS_LOAD_ROOT}/lib/spark-csv_2.11-1.4.0.jar:${TPCDS_LOAD_ROOT}/lib/parquet-common-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-column-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-encoding-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-format-2.3.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-jackson-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/hive-exec-1.2.1.spark2.jar:${TPCDS_LOAD_ROOT}/lib/spark-sql_2.11-2.2.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-bundle-1.6.0.jar  execute_sql_script ${TPCDS_WORK_DIR}/create_database.sql > ${TPCDS_WORK_DIR}/create_database.out 2>&1
 scala -classpath ${TPCDS_LOAD_ROOT}/lib/tpcds_load.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-core-3.2.10.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-api-jdo-3.2.6.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-rdbms-3.2.9.jar:${TPCDS_LOAD_ROOT}/lib/spark-csv_2.11-1.4.0.jar:${TPCDS_LOAD_ROOT}/lib/parquet-common-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-column-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-encoding-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-format-2.3.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-jackson-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/hive-exec-1.2.1.spark2.jar:${TPCDS_LOAD_ROOT}/lib/spark-sql_2.11-2.2.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-bundle-1.6.0.jar  execute_sql_script ${TPCDS_WORK_DIR}/create_tables.sql > ${TPCDS_WORK_DIR}/create_tables.out 2>&1
