@@ -75,6 +75,11 @@ do
   echo "$i" >> ${TPCDS_WORK_DIR}/runlist.txt
 done
 
+for i in `cat ${TPCDS_ROOT_DIR}/runblacklist.txt`;
+do
+  rm ${TPCDS_WORK_DIR}/query$i.sql
+done 
+
 for i in `cat ${OUTPUT_DIR}/runlist.txt`;
 do
   num=`printf "%02d\n" $i`
