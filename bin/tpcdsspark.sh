@@ -285,10 +285,20 @@ function generate_queries {
     cp $TPCDS_ROOT_DIR/src/query-templates/* $TPCDS_WORK_DIR
     templDir=$TPCDS_WORK_DIR
     outDir=${TPCDS_GEN_QUERIES_DIR}
+    dbName=${TPCDS_DBNAME}
     logInfo "Generating TPC-DS qualification queries."
     perl ${TPCDS_ROOT_DIR}/bin/qual.pl
     logInfo "Completed generating TPC-DS qualification queries."
     cd $TPCDS_ROOT_DIR
+
+    for i in `ls ${TPCDS_ROOT_DIR}/genqueries/*.sql`
+    do
+      baseName="$(basename $i)"
+      use=" use "
+      semicolon=";"
+      echo $use$dbName$semicolon | cat - ${TPCDS_ROOT_DIR}/genqueries/$baseName > temp && mv temp ${TPCDS_ROOT_DIR}/genqueries/$baseName
+    done
+
   fi
 }
 
