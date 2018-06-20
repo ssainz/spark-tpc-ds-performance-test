@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Jun 20 16:17:04 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0164-1ed7-eb92-0000b1221b18 
+on database directory /Users/ssainz/Projects/ssainz/spark-tpc-ds-performance-test/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@4b770e40 
+Loaded from file:/Users/ssainz/Projects/ssainz/tpcds_load/lib/tpcds_load.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_74-b02
+user.dir=/Users/ssainz/Projects/ssainz/spark-tpc-ds-performance-test
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.11.4
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
