@@ -10,3 +10,4 @@ dsqgen
 src/toolkit/*
 spark-warehouse/**/*
 metastore_db/**/*
+spark-warehouse/tpcds.db/*/*
