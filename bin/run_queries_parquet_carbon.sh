@@ -62,10 +62,10 @@ cp ${TPCDS_GENQUERIES_DIR}/*.sql $TPCDS_WORK_DIR
 
 divider===============================
 divider=$divider$divider
-header="\n %-10s %11s %15s\n"
-format=" %-10s %11.2f %10s %4d\n" 
-width=40
-printf "$header" "Query" "Time(secs)" "Rows returned" > ${OUTPUT_DIR}/run_summary.txt
+header="\n %-10s  %11s %15s\n"
+format=" %-10s %10s %10s\n" 
+width=50
+printf "$header" "ID" "Query" "Time(secs)" "Rows returned" > ${OUTPUT_DIR}/run_summary.txt
 printf "%$width.${width}s\n" "$divider" >> ${OUTPUT_DIR}/run_summary.txt
 
 
@@ -87,12 +87,12 @@ do
   lines=`cat ${OUTPUT_DIR}/query${num}.res | grep "Time taken:"`
   echo "$lines" | while read -r line; 
   do
-    time=`echo $line | tr -s " " " " | cut -d " " -f3`
-    num_rows=`echo $line | tr -s " " " " | cut -d " " -f6`
+    name=`echo $line | tr -s " " " " | cut -d " " -f2`
+    time=`echo $line | tr -s " " " " | cut -d " " -f5`
+    num_rows=`echo $line | tr -s " " " " | cut -d " " -f8`
     printf "$format" \
-       query${num} \
+       $name \
        $time \
-       "" \
        $num_rows >> ${OUTPUT_DIR}/run_summary.txt 
   done 
 
