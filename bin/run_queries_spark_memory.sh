@@ -89,9 +89,9 @@ done
 divider===============================
 divider=$divider$divider
 header="\n %-10s %11s %15s\n"
-format=" %-10s %10s %10s %4d\n" 
-width=40
-printf "$header" "Query" "Time(secs)" "Rows returned" > ${OUTPUT_DIR}/run_summary.txt
+format=" %-10s %10s %10s\n" 
+width=50
+printf "$header" "ID" "Query" "Time(secs)" "Rows returned" > ${OUTPUT_DIR}/run_summary.txt
 printf "%$width.${width}s\n" "$divider" >> ${OUTPUT_DIR}/run_summary.txt
 
 scala -classpath ${TPCDS_LOAD_ROOT}/lib/tpcds_load.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-core-3.2.10.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-api-jdo-3.2.6.jar:${TPCDS_LOAD_ROOT}/lib/datanucleus-rdbms-3.2.9.jar:${TPCDS_LOAD_ROOT}/lib/spark-csv_2.11-1.4.0.jar:${TPCDS_LOAD_ROOT}/lib/parquet-common-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-column-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-encoding-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-format-2.3.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/parquet-jackson-1.8.2.jar:${TPCDS_LOAD_ROOT}/lib/hive-exec-1.2.1.spark2.jar:${TPCDS_LOAD_ROOT}/lib/spark-sql_2.11-2.2.1.jar:${TPCDS_LOAD_ROOT}/lib/parquet-hadoop-bundle-1.6.0.jar  execute_sql_script ${TPCDS_WORK_DIR}/drop_table.sql > ${TPCDS_WORK_DIR}/drop_table.out 2>&1
@@ -120,12 +120,12 @@ lines=`cat ${OUTPUT_DIR}/queries.res | grep "Time taken:"`
 echo "$lines" | while read -r line; 
 do
   num=`printf "%02d\n" ${i}`
-  time=`echo $line | tr -s " " " " | cut -d " " -f3`
-  num_rows=`echo $line | tr -s " " " " | cut -d " " -f6`
+  name=`echo $line | tr -s " " " " | cut -d " " -f2`
+  time=`echo $line | tr -s " " " " | cut -d " " -f5`
+  num_rows=`echo $line | tr -s " " " " | cut -d " " -f8`
   printf "$format" \
-     query${num} \
+     $name \
      $time \
-     "" \
      $num_rows >> ${OUTPUT_DIR}/run_summary.txt 
   i=$((i+1))
 done 
