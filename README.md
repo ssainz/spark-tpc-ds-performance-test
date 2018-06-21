@@ -4,6 +4,9 @@
 
 
 ## Execute test:
+
+
+
 ```
 git clone
 cd spark-tpc-ds-performance-test
@@ -11,7 +14,91 @@ bin/tpcd_delete_tables.sh
 bin/tpcd_load_to_parquet.sh
 
 ```
+### Preparation:
+1. Set the environment variables in bin/tpcdsenv.sh:
 
+```
+s
+[centos@ip-10-244-144-70 spark-tpc-ds-performance-test]$ cat bin/tpcdsenv.sh
+#!/bin/bash
+#
+# tpcdsenv.sh - UNIX Environment Setup
+#
+
+#######################################################################
+# This is a mandatory parameter. Please provide the location of
+# spark installation.
+#######################################################################
+export SPARK_HOME=/home/centos/spark
+
+#######################################################################
+# Script environment parameters. When they are not set the script
+# defaults to paths relative from the script directory.
+#######################################################################
+
+export TPCDS_ROOT_DIR=/home/centos/spark-tpc-ds-performance-test/
+export TPCDS_LOG_DIR=/home/centos/spark-tpc-ds-performance-test/log
+export TPCDS_DBNAME=tpcds
+export TPCDS_GENDATA_DIR=/home/centos/spark-tpc-ds-performance-test/data
+export TPCDS_GEN_QUERIES_DIR=/home/centos/spark-tpc-ds-performance-test/genqueries
+export TPCDS_WORK_DIR=/home/centos/spark-tpc-ds-performance-test/work
+export TPCDS_LOAD_ROOT=/home/centos/tpcds_load
+export JAVA_OPTS="-Xmx100g -Xms100g"
+```
+
+2. Delete "spark-warehouse" and "metadata_db" from the root folder.
+
+3. Download the repo "tpcds_load".
+
+4. Compile repo "tpcds _ load" according to its instructions and place the binary in "tpcds _ load/lib" folder.
+
+5. Set the location of tpcds_load in the bin/tpcdsenv.sh
+
+6. Edit the "conf/application.conf" and "conf/spark-default.conf"
+
+```
+[centos@ip-10-244-144-70 spark-tpc-ds-performance-test]$ cat conf/spark-defaults.conf
+spark.master=local[2]
+spark.driver.memory=90g
+```
+
+```
+[centos@ip-10-244-144-70 spark-tpc-ds-performance-test]$ cat conf/application.conf
+spark-tpc-ds-performance-test.path="/home/centos/spark-tpc-ds-performance-test"
+```
+
+### Load parquet data:
+
+```
+bin/tpcd_load_to_parquet_single.sh
+```
+
+### Load carbon data:
+```
+bin/tpcd_load_to_carbon.sh
+```
+
+### Load spark memory:
+```
+bin/tpcd_load_to_spark.sh
+```
+
+### Run queries in parquet:
+```
+bin/tpcd_load_to_parquet_single.sh
+bin/run_queries_parquet_carbon.sh
+```
+
+### Run queries in carbon:
+```
+bin/tpcd_load_to_carbon.sh
+bin/run_queries_parquet_carbon.sh
+```
+
+### Run queries in spark memory:
+```
+bin/run_queries_spark_memory.sh
+```
 
 [Apache Spark](https://spark.apache.org) is a popular distributed data processing engine that is built around speed, ease of use and sophisticated analytics, with APIs in Java, Scala, Python, R, and SQL. Like other data processing engines, Spark has a unified optimization engine that computes the optimal way to execute a workload with the main purpose of reducing the disk IO and CPU usage.   
 
